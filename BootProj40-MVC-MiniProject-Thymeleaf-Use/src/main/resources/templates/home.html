@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+<div style="text-align:center; padding-top: 50px;">
+	<h2>Welcome to home page</h2>
+	
+	<label>
+		<a th:href="@{/employee/emp-report}">
+			<img alt="image not found" th:src="@{/images/report.webp}" width="20px" height="20px">
+			Get Employee Data
+		</a>
+	</label>
+</div>
+</body>
+</html>

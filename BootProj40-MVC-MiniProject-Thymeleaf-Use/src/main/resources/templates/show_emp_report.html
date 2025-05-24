@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employees Report</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<style type="text/css">
+	.emp-table {
+		border-collapse: collapse;
+		text-align: center;
+		width: 100%;
+	}
+	
+	th {
+		background-color: #b4e6e6;
+	}
+	
+	td {
+		background-color: #ffdcdc;
+	}
+	
+	tr, th, td {
+	  border: 1px solid black;
+	  padding: 2px;
+	}
+	
+	.current-page {
+		background-color: aqua;
+	}
+	
+</style>
+</head>
+<body>
+<div class="container">
+	<div style="float: right; display: flex;">
+		<div>
+			<button style="background-color: #fce1e1; margin-right: 5px;text-align: center;">
+			    <a style="text-decoration: none;" th:href="@{/employee/add-emp}"><img alt="" th:src="@{/images/add-emp.jpg}" height="25px" width="25px">Add</a>
+			</button>
+		</div>
+		<div>
+			<button style="background-color: #fce1e1; height: 35px">
+				<a style="text-decoration: none;" th:href="@{/employee/}">Cancel</a>
+			</button>
+		</div>
+	</div>
+	
+	<h2 style="text-align: center; margin-top: 30px; margin-bottom: 30px;">Employees</h2>
+	
+	<div th:if="${resultMsg != null}">
+		<h2 style="text-align: center; margin-top: 10px; margin-bottom: 10px; color: green;">
+			<span th:text="${resultMsg}"></span>
+		</h2>
+	</div>
+	
+	<div style="text-align: center;">
+		<div th:if="${!emplList.empty}">
+			<table class="table table-hover" align="center">
+				<tr>
+					<th>Emp No</th>
+					<th>Name</th>
+					<th>Des.</th>
+					<th>Salary</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr th:each="emp:${emplList}"> 
+					<td><span th:text="${emp.empno}"></span></td>
+					<td><span th:text="${emp.ename}"></span></td>
+					<td><span th:text="${emp.deg}"></span></td>
+					<td><span th:text="${emp.sal}"></span></td>
+					<td><a th:href="@{/employee/edit(eno=${emp.empno})}"><img alt="" th:src="@{/images/edit.webp}" height="25px" width="30px"></a></td>
+					<td><a th:href="@{/employee/delete(eno=${emp.empno})}" onclick="return confirm('Are you sure, do want to delete this record?')"><img th:src="@{/images/delete.jpg}" height="25px" width="30px"></a></td>
+				</tr>
+			</table>
+		</div>
+		<div th:if="${emplList.empty}">
+			<label style="background-color: yellow;">Employees not found</label>
+		</div>
+	</div>
+</div>
+</body>
+</html>
