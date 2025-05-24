@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: BootProj04-LayeredApp-MySQL
+  #DataSource Congiguration
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/spring-boot(natraj)
+    username: root
+  # Profile
+  profiles:
+    active: uat
+
+#Default it will comment to Hikari CP
+
+#Profile - Dev = Connect to topcat cp
+
+#Profile - test = Connect to apache dbcp2
+
+#Profile - uat = Connect to c3p0

@@ -1,0 +1,6 @@
+#Profile - dev
+#Connect to tomcat cp
+#Connect EmployeeMySqlDAOImpl.java
+spring:
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource

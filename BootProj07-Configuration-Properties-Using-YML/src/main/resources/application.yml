@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: BootProj07-Configuration-Properties-Using-YML
+  config:
+    import:
+    - application-emp-city.properties
+    - application-emp-sal.yml  
+#Employee Info
+org:
+  nit: 
+    #For Simple Properties
+    eno: 101
+    ename: Rajesh
+    #For Array Properties
+    favColors: 
+      - Red
+      - Blue
+      - Green
+    #For List Collection
+#    nickNames:
+#      - Samba
+#      - Dinga
+#      - Bunga
+#         OR
+    nickNames: [Ravi, Dinesh, Pulkit]
+    #For Set Collection
+    phoneNumbs:
+      - 987456
+      - 741258
+      - 552236
+    #For Map Collection
+    idDetails:
+      aadhar: 8888855
+      voter: 8555
+    #For Has-A-Compancy
+    company:
+      id: 555
+      name: NIT
+      addrs: Nashik
+      size: 50

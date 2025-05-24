@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: BootProj04-LayeredApp-MySQL
+  #DataSource Congiguration
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/spring-boot(natraj)
+    username: root
+  # Profile
+  profiles:
+    active: dev
+
+#Default it will comment to Hikari CP
+---
+#Profile - dev
+#Connect to tomcat cp
+#Connect EmployeeMySqlDAOImpl.java
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    
+---
+#Profile - test
+#Connect to apache dbcp2
+#Connect to EmployeeOracleDAOImpl
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    type: org.apache.commons.dbcp2.BasicDataSource
+
+---
+#Profile uat
+#Connect to c3p0
+#Connect to EmployeeOracleDAOImpl
+spring:
+  config:
+    activate:
+      on-profile: uat
+  datasource:
+    type: com.mchange.v2.c3p0.ComboPooledDataSource
+
